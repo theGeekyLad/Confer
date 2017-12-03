@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Confer</string>
+
+    <string-array name="employment_type">
+        <item>Salaried</item>
+        <item>Business</item>
+        <item>Seperate</item>
+    </string-array>
+
+    <string-array name="residence_type">
+        <item>Owner</item>
+        <item>Rent</item>
+    </string-array>
+
+    <string-array name="purpose">
+        <item>House</item>
+        <item>Education</item>
+        <item>Health</item>
+        <item>Car</item>
+        <item>Others</item>
+    </string-array>
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/drawable_divider"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_margin="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/nameoflender"
+        android:text="Mohit"
+        android:textStyle="bold"
+        android:textSize="23dp"
+        />
+
+    <LinearLayout
+        android:layout_margin="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:text="Id : 123456789"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8900"
+            android:textStyle="bold"
+
+            android:textSize="28dp"/>
+
+    </LinearLayout>
+    <TextView
+        android:layout_margin="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="9:15pm"/>
+
+</LinearLayout>

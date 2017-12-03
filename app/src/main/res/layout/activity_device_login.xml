@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.blacklotus.confer.DeviceLoginActivity">
+
+    <ImageView
+        android:id="@+id/finerprint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/fingerprint" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Confirm Fingerprints" />
+
+    <com.github.florent37.materialtextfield.MaterialTextField
+        android:layout_marginTop="200dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:mtf_labelColor="#666"
+        app:mtf_image="@drawable/ic_security_black_24dp">
+        <EditText
+            android:id="@+id/pin"
+            android:maxLength="4"
+            android:inputType="numberPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="PIN" />
+    </com.github.florent37.materialtextfield.MaterialTextField>
+
+</LinearLayout>
