@@ -70,8 +70,6 @@ public class ListActivity extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference();
         sharedPreferences = getSharedPreferences("prefs", MODE_PRIVATE);
         participants = new String[2];
-        sharedPreferences.edit().putString("email", "rahul^pillai03@gmail^com").apply();
-        sharedPreferences.edit().putBoolean("mode", true).apply();
 
         initFabs();
 
@@ -84,7 +82,7 @@ public class ListActivity extends AppCompatActivity {
         updateStatusFAB();
 
         // alert if payment date is due
-        ifTodayIsRepaymentDate();
+        //ifTodayIsRepaymentDate();
 
     }
 
@@ -169,18 +167,33 @@ public class ListActivity extends AppCompatActivity {
                         .show();
             }
         });
+        addActionButton("Logout", R.drawable.ic_launcher).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(ListActivity.this, LoginActivity.class));
+                finish();
+            }
+        });
     }
 
     private void pushParams(View paramsView) {
+        float amount = Float.parseFloat(((EditText) paramsView.findViewById(R.id.amount)).getText().toString());
+        float rate = Float.parseFloat(((EditText) paramsView.findViewById(R.id.rate)).getText().toString());
+        int tenure = Integer.parseInt(((EditText) paramsView.findViewById(R.id.tenure)).getText().toString());
+        if (!(amount >= 25000 && amount <= 500000 && rate >= 12)) {
+            Toasty.error(ListActivity.this, "Kindly refer to RBI guidelines for data limits!", Toast.LENGTH_SHORT, true).show();
+            return;
+        }
         databaseReference
-                .child((sharedPreferences.getBoolean("mode", true))?"lender":"borrower")
+                .child((sharedPreferences.getBoolean("mode", false))?"lender":"borrower")
                 .child(sharedPreferences.getString("email", ""))
                 .child("lendable_borrowable")
                 .child("params")
                 .setValue(new Params(
-                        Float.parseFloat(((EditText) paramsView.findViewById(R.id.amount)).getText().toString()),
-                        Float.parseFloat(((EditText) paramsView.findViewById(R.id.rate)).getText().toString()),
-                        Integer.parseInt(((EditText) paramsView.findViewById(R.id.tenure)).getText().toString())
+                        amount,
+                        rate,
+                        tenure
                 ));
     }
 

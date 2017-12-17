@@ -81,8 +81,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
-                                    if (dataSnapshot.child("lender").child(Tools.formatEmail(editTextemail.getText().toString().trim())).getValue() == null)
+                                    if (dataSnapshot.child("lender").child(Tools.formatEmail(editTextemail.getText().toString().trim())).exists()) {
                                         sharedPreferences.edit().putBoolean("mode", false).apply();
+                                    }
                                     else
                                         sharedPreferences.edit().putBoolean("mode", true).apply();
                                     Toast.makeText(getApplicationContext(),"You are Signed In",Toast.LENGTH_LONG).show();

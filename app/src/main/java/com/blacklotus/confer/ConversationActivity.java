@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.AsyncTask;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -42,7 +41,7 @@ public class ConversationActivity extends AppCompatActivity {
         //User icon
         Bitmap myIcon = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
         //User name
-        String myName = getIntent().getStringExtra("email");
+        String myName = Tools.unFormatEmail(getIntent().getStringExtra("email"));
 
         int yourId = 1;
         Bitmap yourIcon = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
@@ -54,10 +53,10 @@ public class ConversationActivity extends AppCompatActivity {
         mChatView = (ChatView) findViewById(R.id.chat_view);
 
         //Set UI parameters if you need
-        mChatView.setRightBubbleColor(ContextCompat.getColor(this, R.color.green500));
+        mChatView.setRightBubbleColor(getColor(R.color.green500));
         mChatView.setLeftBubbleColor(Color.WHITE);
-        mChatView.setBackgroundColor(ContextCompat.getColor(this, R.color.blueGray500));
-        mChatView.setSendButtonColor(ContextCompat.getColor(this, R.color.cyan900));
+        mChatView.setBackgroundColor(getColor(R.color.blueGray500));
+        mChatView.setSendButtonColor(getColor(R.color.cyan900));
         mChatView.setSendIcon(R.drawable.ic_action_send);
         mChatView.setRightMessageTextColor(Color.WHITE);
         mChatView.setLeftMessageTextColor(Color.BLACK);
